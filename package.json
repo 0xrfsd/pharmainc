@@ -19,6 +19,7 @@
   "homepage": "https://github.com/0xrfsd/pharmainc#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.13.7"
+    "mongoose": "^5.13.7",
+    "request": "^2.88.2"
   }
 }
