@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/0xrfsd/pharmainc/issues"
   },
-  "homepage": "https://github.com/0xrfsd/pharmainc#readme"
+  "homepage": "https://github.com/0xrfsd/pharmainc#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.7"
+  }
 }
