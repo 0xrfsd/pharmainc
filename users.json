@@ -1,1 +1,47 @@
-{"results":[{"gender":"male","name":{"title":"Mr","first":"Sebastian","last":"Little"},"location":{"street":{"number":8810,"name":"Grove Road"},"city":"Derby","state":"Cumbria","country":"United Kingdom","postcode":"F7Y 0XE","coordinates":{"latitude":"6.9281","longitude":"-123.2634"},"timezone":{"offset":"+2:00","description":"Kaliningrad, South Africa"}},"email":"sebastian.little@example.com","login":{"uuid":"d88e3431-8073-4031-9f64-db147ab5ece9","username":"greenfish863","password":"village","salt":"IcDocndZ","md5":"2c4c308112d26e588f531630919067d0","sha1":"a4101d2d73e807e75d290f40be68dd8702d74a6e","sha256":"ac128eed66be758a634d6cc714b79d4d6bd54617754ba570dc5432ff20da20e7"},"dob":{"date":"1984-01-15T15:57:20.209Z","age":37},"registered":{"date":"2003-09-07T00:43:44.745Z","age":18},"phone":"017684 74081","cell":"0749-274-547","id":{"name":"NINO","value":"ZM 86 55 93 D"},"picture":{"large":"https://randomuser.me/api/portraits/men/25.jpg","medium":"https://randomuser.me/api/portraits/med/men/25.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/25.jpg"},"nat":"GB"}],"info":{"seed":"7fb9dfa8568f1aad","results":1,"page":1,"version":"1.3"}}
+{
+  "results": [
+    {
+      "gender": "male",
+      "name": { "title": "Mr", "first": "Sebastian", "last": "Little" },
+      "location": {
+        "street": { "number": 8810, "name": "Grove Road" },
+        "city": "Derby",
+        "state": "Cumbria",
+        "country": "United Kingdom",
+        "postcode": "F7Y 0XE",
+        "coordinates": { "latitude": "6.9281", "longitude": "-123.2634" },
+        "timezone": {
+          "offset": "+2:00",
+          "description": "Kaliningrad, South Africa"
+        }
+      },
+      "email": "sebastian.little@example.com",
+      "login": {
+        "uuid": "d88e3431-8073-4031-9f64-db147ab5ece9",
+        "username": "greenfish863",
+        "password": "village",
+        "salt": "IcDocndZ",
+        "md5": "2c4c308112d26e588f531630919067d0",
+        "sha1": "a4101d2d73e807e75d290f40be68dd8702d74a6e",
+        "sha256": "ac128eed66be758a634d6cc714b79d4d6bd54617754ba570dc5432ff20da20e7"
+      },
+      "dob": { "date": "1984-01-15T15:57:20.209Z", "age": 37 },
+      "registered": { "date": "2003-09-07T00:43:44.745Z", "age": 18 },
+      "phone": "017684 74081",
+      "cell": "0749-274-547",
+      "id": { "name": "NINO", "value": "ZM 86 55 93 D" },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/25.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/25.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/25.jpg"
+      },
+      "nat": "GB"
+    }
+  ],
+  "info": {
+    "seed": "7fb9dfa8568f1aad",
+    "results": 1,
+    "page": 1,
+    "version": "1.3"
+  }
+}
