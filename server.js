@@ -1,5 +1,5 @@
 const express = require("express");
-const request = require("request");
+const axios = require("axios");
 const cron = require("node-cron");
 
 require("./database");
@@ -11,44 +11,53 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// criar esquema de usuario com mongoose createSchema
-// manter todos parametros dos dados que estamos puxando =+ 2
-// passar parametro imported_t recebendo New Date()
-// passar parametro status do tipo Enum recebendo os possiveis valores = ['draft', 'trash', 'publicado']
-
-// gender
-// name
-// location
-// email
-// login
-// dob
-// registered
-// phone
-// cell
-// id_
-// picture
-// nat
-// status
-
 const url = "https://www.randomuser.me/api/";
 
-const Atualizador = () => {
-  request(url, async (req, res) => {
-    try {
-      console.log(res.body);
-    } catch (e) {
-      console.error(e);
-    }
-  });
+const userAmount = 3;
+
+const Importar = () => {
+  axios
+    .get(`${url}/?results=${userAmount}`)
+    .then((response) => {
+      const arr = response.data.results;
+      User.insertMany(arr, (err, docs) => {
+        err ? console.error(err) : console.log(docs);
+      });
+    })
+    .catch((error) => {
+      // handle error
+      console.log(error);
+    })
+    .then(() => {
+      // always executed
+    });
 };
 
-cron.schedule("09 05 * * * ", () => {
-  Atualizador();
-});
+cron.schedule(
+  "49 13 * * *",
+  () => {
+    Importar();
+  },
+  {
+    scheduled: true,
+    timezone: "America/Sao_Paulo",
+  }
+);
 
 app.put("/users/:userId", async (req, res) => {
   try {
-    console.log(req.body);
+    const key = Object.keys(req.query);
+    const value = Object.values(req.query);
+    const filter = { _id: req.params.userId };
+
+    const a = key[0];
+    const b = value[0];
+
+    const update = { [a]: b };
+
+    await User.findOneAndUpdate(filter, update, {useFindAndModify: true});
+
+    res.send({ Message: "Atualizado com sucesso" });
   } catch (e) {
     console.error(e);
   }
@@ -56,7 +65,6 @@ app.put("/users/:userId", async (req, res) => {
 
 app.post("/addUser", async (req, res) => {
   try {
-
     const user = new User({
       gender: req.body.gender,
       name: req.body.name,
@@ -70,13 +78,56 @@ app.post("/addUser", async (req, res) => {
       id_: req.body._id,
       picture: req.body.picture,
       nat: req.body.nat,
-      status: req.body.status
-    })
+      status: req.body.status,
+    });
     await user.save();
-    res.send({"message": "Usuario criado com sucesso!"})
-
+    res.send({ message: "Usuario criado com sucesso!" });
   } catch (e) {
     console.error(e);
+  }
+});
+
+app.get("/users", async (req, res) => {
+  try {
+    await User.find({}, (err, docs) => {
+      err ? console.error(err) : res.json(docs);
+    });
+  } catch (e) {
+    console.error(e);
+  }
+});
+
+app.get("/users/:userId", async (req, res) => {
+  try {
+    await User.find({ _id: req.params.userId }, (err, docs) => {
+      err ? console.error(err) : res.json(docs);
+    });
+  } catch (e) {
+    console.error(e);
+  }
+});
+
+app.delete("/users/deleteAll", async (req, res) => {
+  try {
+    User.deleteMany({}, (err, docs) => {
+      err ? console.error(err) : console.log(docs);
+    });
+
+    res.send({ Message: "Sucessfully deleted!" });
+  } catch (e) {
+    console.error(e);
+  }
+});
+
+app.delete("/users/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params.userId;
+
+    await User.findOneAndDelete(userId);
+
+    return res.status(200).json({ User: "Successfully deleted" });
+  } catch (e) {
+    return res.json({ Erro: e });
   }
 });
 

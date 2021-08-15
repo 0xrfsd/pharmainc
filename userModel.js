@@ -3,43 +3,36 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     gender: {
         type: String,
-        required: [true, 'Gender is required!']
     },
     name: {
-        type: String,
-        required: true
+        type: Object,
     },
     location: {
-        type: String,
+        type: Object,
     },
     email: {
         type: String,
-        required: true
     },
     login: {
-        type: String,
-        required: true
+        type: Object,
     },
     dob: {
-        type: String,
+        type: Object,
     },
     registered: {
-        type: String,
+        type: Object,
     },
     phone: {
-        type: Number,
-        required: true
+        type: String,
     },
     cell: {
-        type: Number,
-        required: true
-    },
-    id_: {
         type: String,
+    },
+    id: {
+        type: Object,
     },
     picture: {
-        type: String,
-        required: true
+        type: Object,
     },
     nat: {
         type: String,
@@ -50,7 +43,8 @@ const userSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ["draft", "trash", "publicado"]
+        enum: ["draft", "trash", "publicado"],
+        default: "publicado"
     },
 })
 
