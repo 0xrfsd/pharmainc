@@ -9,7 +9,7 @@
 - JSON
 
 ## Tech Stack:
-- Node.Js - JS Runtime
+- NodeJS - JS Runtime
 - MongoDB - noSQL Database (JSON)
 
 ## Node Packages:
