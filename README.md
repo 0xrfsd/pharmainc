@@ -1,5 +1,13 @@
 # pharmainc
 
+## Scope: 
+- Desenvolver REST API importando os dados do projeto: https://randomuser.me/documentation
+- Para definição do modelo, consultar o arquivo users.json que foi exportado do Random Users
+- imported_t: campo do tipo Data com o dia e hora que foi importado
+- status: campo do tipo Enum com os valores possíveis: draft, trash e publicado
+- API com sistema de atualização diariamente que vai importar para o nosso banco de dados a versão mais recente do Random Users e configurar variavel de horário
+- JSON
+
 ## Requisites:
 - express
 - axios
