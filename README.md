@@ -8,7 +8,11 @@
 - API com sistema de atualização diariamente que vai importar para o nosso banco de dados a versão mais recente do Random Users e configurar variavel de horário
 - JSON
 
-## Requisites:
+## Tech Stack:
+- Node.Js - JS Runtime
+- MongoDB - noSQL Database (JSON)
+
+## Node Packages:
 - express
 - axios
 - node-cron
