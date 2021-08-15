@@ -34,7 +34,7 @@ const Importar = () => {
 };
 
 cron.schedule(
-  "49 13 * * *",
+  "00 17 * * *",
   () => {
     Importar();
   },
